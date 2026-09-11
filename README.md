@@ -8,6 +8,8 @@ Plataforma educacional gratuita para Educação Infantil e Ensino Fundamental I.
 
 Requer Node.js 22.13+ (recomendado Node 22 LTS) e npm. Neste notebook, Node 22 já está instalado via nvm.
 
+O projeto fixa npm 10.9.2 e `legacy-peer-deps=false` para que instalações locais e builds na Cloudflare resolvam exatamente a mesma árvore de dependências.
+
 ```sh
 cd /Users/greto/Documents/GitHub/aprendizagem-kids-play
 nvm use
