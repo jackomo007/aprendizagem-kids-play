@@ -28,7 +28,7 @@ npm run preview
 
 ## Stack e organização
 
-Next.js 16 (App Router), React 19, TypeScript estrito e Tailwind CSS 4. ESLint 10 com `@eslint/compat` para compatibilidade dos plugins React do Next.js. Nenhuma biblioteca de UI, ícones, animação, analytics ou estado global.
+Next.js 16 (App Router), React 19, TypeScript estrito e Tailwind CSS 4. ESLint 9, compatível com os plugins React usados pelo Next.js. Nenhuma biblioteca de UI, ícones, animação, analytics ou estado global.
 
 ```text
 src/

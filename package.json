@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build --webpack",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "preview": "python3 -m http.server 3000 --directory out"
@@ -18,12 +18,11 @@
     "react-dom": "19.3.0"
   },
   "devDependencies": {
-    "@eslint/compat": "^2.1.1",
     "@tailwindcss/postcss": "4.3.3",
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^10.10.0",
+    "eslint": "9.39.5",
     "eslint-config-next": "16.3.4",
     "tailwindcss": "4.3.3",
     "typescript": "^5"
