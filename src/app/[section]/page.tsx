@@ -1,9 +1,8 @@
 import { BrandBanner } from "@/components/BrandBanner";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { categories, schoolTopics } from "@/data/categories";
+import { categories } from "@/data/categories";
 import { games } from "@/data/games";
-import { activities } from "@/data/activities";
 import { videos } from "@/data/videos";
 import { languages } from "@/data/languages";
 import {
@@ -14,14 +13,10 @@ import {
   Badge,
   ButtonLink,
 } from "@/components/ui";
-import {
-  ActivityCard,
-  GameCard,
-  VideoCard,
-  ContentCard,
-} from "@/components/cards";
+import { GameCard, VideoCard, ContentCard } from "@/components/cards";
 import { PageIntro } from "@/components/PageIntro";
 import { EarlyChildhoodActivities } from "@/components/EarlyChildhoodActivities";
+import { FundamentalActivities } from "@/components/FundamentalActivities";
 import { pageMetadata } from "@/lib/metadata";
 export function generateStaticParams() {
   return categories
@@ -48,7 +43,6 @@ export default async function CategoryPage({
   const { section } = await params;
   const category = categories.find((c) => c.slug === section);
   if (!category) notFound();
-  const school = section === "educacao-infantil" || section === "fundamental";
   return (
     <Container className="page-container">
       <PageIntro
@@ -164,57 +158,7 @@ export default async function CategoryPage({
         </section>
       )}
       {section === "educacao-infantil" && <EarlyChildhoodActivities />}
-      {school && section !== "educacao-infantil" && (
-        <>
-          <section className="section">
-            <SectionTitle
-              title={
-                section === "fundamental"
-                  ? "Conhecimento para ir mais longe"
-                  : "Um começo cheio de possibilidades"
-              }
-              description="A coleção está começando. Estes são os temas que vão guiar nossas próximas atividades."
-            />
-            <div className="topic-list">
-              {schoolTopics[section].map((topic) => (
-                <span key={topic}>
-                  <Icon name="check" />
-                  {topic}
-                </span>
-              ))}
-            </div>
-            {section === "fundamental" && (
-              <p className="editorial-note">
-                Do 1º ao 5º ano. Nesta primeira coleção, os materiais de
-                Português e Matemática são introdutórios, para o 1º e 2º ano.
-              </p>
-            )}
-          </section>
-          <section className="section compact-section">
-            <SectionTitle title="Para descobrir agora" />
-            <div className="content-grid">
-              {games
-                .filter(
-                  (g) =>
-                    g.status === "available" &&
-                    (section === "fundamental" || g.slug === "conta-comigo"),
-                )
-                .map((game) => (
-                  <GameCard key={game.slug} game={game} />
-                ))}
-              {activities
-                .filter((a) =>
-                  section === "fundamental"
-                    ? a.subject === "Matemática"
-                    : a.level === "Educação Infantil",
-                )
-                .map((activity) => (
-                  <ActivityCard key={activity.slug} activity={activity} />
-                ))}
-            </div>
-          </section>
-        </>
-      )}
+      {section === "fundamental" && <FundamentalActivities />}
     </Container>
   );
 }

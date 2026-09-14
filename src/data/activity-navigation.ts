@@ -6,6 +6,7 @@ export interface ActivityNavigationItem {
   icon?: IconName;
   symbol?: string;
   tone: Tone;
+  externalHref?: string;
 }
 
 export const activityGrades: ActivityNavigationItem[] = [
@@ -30,13 +31,19 @@ export const preschoolCategories: ActivityNavigationItem[] = [
   { slug: "emocoes-e-autonomia", title: "Emoções e Autonomia", icon: "heart", tone: "pink" },
 ];
 
-export const elementarySubjects: ActivityNavigationItem[] = [
+export const fundamentalSubjects: ActivityNavigationItem[] = [
   { slug: "lingua-portuguesa", title: "Língua Portuguesa", icon: "book", tone: "purple" },
   { slug: "matematica", title: "Matemática", symbol: "123", tone: "yellow" },
-  { slug: "ciencias", title: "Ciências", icon: "spark", tone: "green" },
   { slug: "historia", title: "História", icon: "book", tone: "orange" },
+  { slug: "ciencias", title: "Ciências", icon: "spark", tone: "green" },
   { slug: "geografia", title: "Geografia", icon: "globe", tone: "blue" },
+  { slug: "arte", title: "Arte", icon: "pencil", tone: "pink" },
+  { slug: "educacao-fisica", title: "Educação Física", icon: "heart", tone: "green" },
+  { slug: "ingles", title: "Inglês", icon: "globe", tone: "blue", externalHref: "/idiomas/ingles/" },
+  { slug: "espanhol", title: "Espanhol", icon: "globe", tone: "orange", externalHref: "/idiomas/espanhol/" },
 ];
+
+export const elementarySubjects = fundamentalSubjects.filter((subject) => !subject.externalHref);
 
 export function getActivityGrade(slug: string) {
   return activityGrades.find((grade) => grade.slug === slug);

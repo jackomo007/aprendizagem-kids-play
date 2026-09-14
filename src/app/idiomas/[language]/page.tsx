@@ -1,9 +1,8 @@
 import { notFound } from "next/navigation";
-import { languages, languageTopics } from "@/data/languages";
-import { quizzes } from "@/data/quizzes";
-import { Container, SectionTitle, Icon } from "@/components/ui";
+import { languages } from "@/data/languages";
+import { Container } from "@/components/ui";
 import { PageIntro } from "@/components/PageIntro";
-import { QuizPlayer } from "@/components/QuizPlayer";
+import { LanguageLevelQuiz } from "@/components/LanguageLevelQuiz";
 import { pageMetadata } from "@/lib/metadata";
 export const dynamicParams = false;
 export function generateStaticParams() {
@@ -37,21 +36,7 @@ export default async function LanguagePage({
         icon="globe"
         tone={item.tone}
       />
-      <section className="section">
-        <SectionTitle
-          title="Uma primeira descoberta"
-          description="Experimente o quiz de cores, números e animais. Objetos, palavras e frases vão ampliar a coleção no futuro."
-        />
-        <div className="topic-list">
-          {languageTopics.map((topic) => (
-            <span key={topic}>
-              <Icon name="spark" />
-              {topic}
-            </span>
-          ))}
-        </div>
-        <QuizPlayer quiz={quizzes[language]} />
-      </section>
+      <LanguageLevelQuiz language={language} title={item.title} />
     </Container>
   );
 }
