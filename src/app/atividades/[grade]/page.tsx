@@ -24,7 +24,7 @@ export default async function ActivityGradePage({ params }: { params: Promise<{ 
   const grade = getActivityGrade(gradeSlug);
   if (!grade) notFound();
   const categories = getCategoriesForGrade(grade.slug);
-  const preschool = grade.slug.startsWith("pre-");
+  const preschool = grade.slug.startsWith("pre-") || grade.slug === "infantil-v";
   return (
     <Container className="page-container">
       <PageIntro

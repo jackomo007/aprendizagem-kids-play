@@ -21,6 +21,8 @@ import {
   ContentCard,
 } from "@/components/cards";
 import { PageIntro } from "@/components/PageIntro";
+import { ActivityNavCard } from "@/components/ActivityNavCard";
+import { preschoolCategories } from "@/data/activity-navigation";
 import { pageMetadata } from "@/lib/metadata";
 export function generateStaticParams() {
   return categories
@@ -173,14 +175,26 @@ export default async function CategoryPage({
               }
               description="A coleção está começando. Estes são os temas que vão guiar nossas próximas atividades."
             />
-            <div className="topic-list">
-              {schoolTopics[section].map((topic) => (
-                <span key={topic}>
-                  <Icon name="check" />
-                  {topic}
-                </span>
-              ))}
-            </div>
+            {section === "educacao-infantil" ? (
+              <div className="activity-nav-grid">
+                {preschoolCategories.map((item) => (
+                  <ActivityNavCard
+                    key={item.slug}
+                    item={item}
+                    href={`/atividades/educacao-infantil/${item.slug}/`}
+                  />
+                ))}
+              </div>
+            ) : (
+              <div className="topic-list">
+                {schoolTopics[section].map((topic) => (
+                  <span key={topic}>
+                    <Icon name="check" />
+                    {topic}
+                  </span>
+                ))}
+              </div>
+            )}
             {section === "fundamental" && (
               <p className="editorial-note">
                 Do 1º ao 5º ano. Nesta primeira coleção, os materiais de
