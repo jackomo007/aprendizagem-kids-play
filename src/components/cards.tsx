@@ -114,7 +114,13 @@ export function GameCard({ game }: { game: Game }) {
     </Card>
   );
 }
-export function ActivityCard({ activity }: { activity: Activity }) {
+export function ActivityCard({
+  activity,
+  levelOverride,
+}: {
+  activity: Activity;
+  levelOverride?: string;
+}) {
   return (
     <Card>
       <ContentCover content={activity} kind="worksheet" />
@@ -123,7 +129,7 @@ export function ActivityCard({ activity }: { activity: Activity }) {
         <h3>{activity.title}</h3>
         <p>{activity.description}</p>
         <span className="content-meta">
-          {activity.level} · {activity.pages} página · PDF
+          {levelOverride ?? activity.level} · {activity.pages} página · PDF
         </span>
         <div className="activity-actions">
           <a

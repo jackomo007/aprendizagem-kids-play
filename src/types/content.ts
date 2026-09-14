@@ -33,6 +33,8 @@ export interface Game extends Content {
   status: "available" | "soon";
 }
 export interface Activity extends Content {
+  gradeSlugs: string[];
+  categorySlug: string;
   pages: number;
   pdf: string;
 }

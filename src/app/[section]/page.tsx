@@ -23,7 +23,9 @@ import {
 import { PageIntro } from "@/components/PageIntro";
 import { pageMetadata } from "@/lib/metadata";
 export function generateStaticParams() {
-  return categories.map((category) => ({ section: category.slug }));
+  return categories
+    .filter((category) => category.slug !== "atividades")
+    .map((category) => ({ section: category.slug }));
 }
 export const dynamicParams = false;
 export async function generateMetadata({
@@ -70,26 +72,6 @@ export default async function CategoryPage({
             Os jogos desta primeira coleção são experiências curtas de
             demonstração. Sem cronômetro, ranking ou coleta de dados.
           </p>
-        </section>
-      )}
-      {section === "atividades" && (
-        <section className="section">
-          <SectionTitle
-            title="Imprima. Experimente. Descubra."
-            description="Três materiais de exemplo, prontos para usar. PDFs em A4, com uma página cada."
-          />
-          <div className="notice">
-            <Icon name="pencil" />
-            <p>
-              Abra a atividade para visualizar ou baixe o PDF. Na impressão, use
-              papel A4 e a opção “Ajustar à página”. Um adulto pode ajudar.
-            </p>
-          </div>
-          <div className="content-grid">
-            {activities.map((activity) => (
-              <ActivityCard key={activity.slug} activity={activity} />
-            ))}
-          </div>
         </section>
       )}
       {section === "videos" && <BrandBanner variant="videos" />}
