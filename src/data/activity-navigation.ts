@@ -20,12 +20,6 @@ export const activityGrades: ActivityNavigationItem[] = [
 ];
 
 export const earlyChildhoodGradeSlugs = ["pre-iii", "pre-iv", "infantil-v"];
-export const educationActivityGroup: ActivityNavigationItem = {
-  slug: "educacao-infantil",
-  title: "Educação Infantil",
-  icon: "shapes",
-  tone: "purple",
-};
 
 export const preschoolCategories: ActivityNavigationItem[] = [
   { slug: "grafomotricidade", title: "Grafomotricidade", icon: "pencil", tone: "orange" },
@@ -45,13 +39,11 @@ export const elementarySubjects: ActivityNavigationItem[] = [
 ];
 
 export function getActivityGrade(slug: string) {
-  return slug === educationActivityGroup.slug
-    ? educationActivityGroup
-    : activityGrades.find((grade) => grade.slug === slug);
+  return activityGrades.find((grade) => grade.slug === slug);
 }
 
 export function getCategoriesForGrade(gradeSlug: string) {
-  return gradeSlug === educationActivityGroup.slug || earlyChildhoodGradeSlugs.includes(gradeSlug)
+  return earlyChildhoodGradeSlugs.includes(gradeSlug)
     ? preschoolCategories
     : elementarySubjects;
 }
@@ -63,13 +55,6 @@ export function getActivityCategory(gradeSlug: string, categorySlug: string) {
 export const activityCategoryParams = activityGrades.flatMap((grade) =>
   getCategoriesForGrade(grade.slug).map((category) => ({
     grade: grade.slug,
-    category: category.slug,
-  })),
-);
-
-activityCategoryParams.push(
-  ...preschoolCategories.map((category) => ({
-    grade: educationActivityGroup.slug,
     category: category.slug,
   })),
 );
