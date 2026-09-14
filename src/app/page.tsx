@@ -4,7 +4,7 @@ import { Hero } from "@/components/Hero";
 import { CategoryCard, GameCard, ActivityCard } from "@/components/cards";
 import { categories } from "@/data/categories";
 import { games } from "@/data/games";
-import { activities } from "@/data/activities";
+import { activities, featuredActivitySlugs } from "@/data/activities";
 import { pageMetadata } from "@/lib/metadata";
 import { site } from "@/data/site";
 export const metadata = pageMetadata(
@@ -56,9 +56,11 @@ export default function Home() {
             linkLabel="Ver atividades"
           />
           <div className="content-grid">
-            {activities.slice(0, 3).map((activity) => (
-              <ActivityCard key={activity.slug} activity={activity} />
-            ))}
+            {activities
+              .filter((activity) => featuredActivitySlugs.includes(activity.slug))
+              .map((activity) => (
+                <ActivityCard key={activity.slug} activity={activity} />
+              ))}
           </div>
         </section>
         <CreatorSection compact />
