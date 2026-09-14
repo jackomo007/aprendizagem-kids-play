@@ -61,7 +61,7 @@ export default async function CategoryPage({
         <section className="section">
           <SectionTitle
             title="Escolha sua próxima aventura"
-            description="Dois jogos para experimentar agora e uma aventura a caminho."
+            description="Três jogos curtos para aprender, pensar e cuidar do planeta."
           />
           <div className="content-grid">
             {games.map((game) => (

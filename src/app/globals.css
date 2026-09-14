@@ -1367,3 +1367,53 @@ progress::-moz-progress-bar {
     animation: none !important;
   }
 }
+
+/* Missão Oceano */
+.ocean-page .page-intro { margin-bottom: 32px; }
+.ocean-game { max-width: 920px; margin: 0 auto; border: 1px solid #b6dce9; border-radius: 26px; overflow: hidden; background: #eaf9fc; box-shadow: 0 7px 0 #c6e7ee, 0 20px 45px #075c7b18; }
+.ocean-hud { min-height: 76px; padding: 12px 18px; display: grid; grid-template-columns: auto minmax(90px, 1fr) auto auto; align-items: center; gap: 18px; background: #fff; border-bottom: 1px solid #cce7ed; }
+.ocean-hud > div { display: flex; flex-direction: column; line-height: 1.25; }
+.ocean-hud span { color: #55717b; font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
+.ocean-hud strong { color: #075975; font-size: 1.12rem; }
+.ocean-hud strong i { color: #d9e2e5; font-style: normal; }
+.ocean-progress { height: 10px; display: block !important; background: #dceff2; border-radius: 99px; overflow: hidden; }
+.ocean-progress i { height: 100%; display: block; background: linear-gradient(90deg, #1fbfa4, #20a6d5); border-radius: inherit; transition: width 220ms ease; }
+.ocean-sound { border: 1px solid #c6e2e8; border-radius: 10px; background: #f2fbfc; color: #185e70; padding: 8px 10px; font-size: .78rem; font-weight: 750; }
+.ocean-board { position: relative; aspect-ratio: 16 / 10; min-height: 360px; overflow: hidden; outline-offset: -5px; user-select: none; touch-action: none; background: #0683a7 url("/jogos/missao-oceano/fundo.webp") center 57% / cover no-repeat; }
+.ocean-board::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(#80e6ed12, transparent 35%, #003e5518); }
+.ocean-entity { position: absolute; z-index: 3; width: 9%; max-height: 15%; object-fit: contain; filter: drop-shadow(0 5px 4px #003a5140); }
+.entity-garrafa { width: 6%; } .entity-pneu { width: 8%; } .entity-pedra { width: 7%; } .entity-peixe { width: 10%; } .entity-tartaruga { width: 11%; }
+.ocean-player { position: absolute; z-index: 5; bottom: 4%; width: 21%; transform: translateX(-50%); filter: drop-shadow(0 7px 6px #00324755); transition: left 70ms linear; }
+.ocean-bubbles { position: absolute; z-index: 1; width: 8px; height: 8px; border: 2px solid #d7ffffa8; border-radius: 50%; animation: ocean-bubble 5s linear infinite; }
+.ocean-bubbles::before, .ocean-bubbles::after { content: ""; position: absolute; border: 2px solid #d7ffffa8; border-radius: 50%; }
+.ocean-bubbles::before { width: 12px; height: 12px; left: 13px; top: 21px; } .ocean-bubbles::after { width: 5px; height: 5px; left: -9px; top: 38px; }
+.bubbles-one { left: 12%; bottom: -10%; } .bubbles-two { right: 15%; bottom: -18%; animation-delay: 2.2s; }
+@keyframes ocean-bubble { to { transform: translateY(-620px); } }
+.ocean-overlay { position: absolute; z-index: 10; inset: 0; padding: 28px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(#063c5bc9, #032e50e8); color: white; }
+.ocean-overlay img { width: min(150px, 24%); max-height: 145px; object-fit: contain; margin-bottom: 5px; filter: drop-shadow(0 7px 10px #00223960); }
+.ocean-overlay .eyebrow { color: #8ef3e7; font-size: .73rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.ocean-overlay h2 { margin: 6px 0 8px; color: white; font-size: clamp(1.7rem, 4vw, 2.6rem); }
+.ocean-overlay > p:not(.eyebrow) { max-width: 520px; color: #e4f8fb; }
+.ocean-overlay .button { margin-top: 18px; background: #ffcb3d; color: #18324c; box-shadow: 0 4px 0 #ca8b12; }
+.ocean-message { min-height: 54px; padding: 13px 18px; display: grid; place-items: center; text-align: center; background: #075975; color: white; font-weight: 700; font-size: .88rem; }
+.ocean-controls { padding: 13px 18px; display: grid; grid-template-columns: 150px 1fr 150px; gap: 16px; align-items: center; }
+.ocean-controls button { min-height: 49px; border: 1px solid #8bc8d6; border-radius: 12px; background: white; color: #075975; box-shadow: 0 3px 0 #b6dde5; font-weight: 800; }
+.ocean-controls button:active { transform: translateY(3px); box-shadow: none; } .ocean-controls p { text-align: center; font-size: .76rem; }
+.ocean-legend { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px 24px; padding: 0 18px 18px; }
+.ocean-legend span { display: inline-flex; align-items: center; gap: 7px; color: #396473; font-size: .74rem; font-weight: 700; }
+.ocean-legend img { width: 30px; height: 24px; object-fit: contain; }
+.ocean-learning { max-width: 920px; margin: 36px auto 0; padding: 26px 28px; border-radius: 18px; background: #e8f5ed; border: 1px solid #b9ddc5; }
+.ocean-learning h2 { font-size: 1.3rem; margin-bottom: 7px; color: #245f47; } .ocean-learning p { font-size: .88rem; }
+
+@media (max-width: 767px) {
+  .ocean-game { border-radius: 18px; }
+  .ocean-hud { grid-template-columns: auto 1fr auto; gap: 10px; padding: 10px 12px; }
+  .ocean-hud > div:first-child { order: 1; } .ocean-progress { order: 2; } .ocean-hud > div:nth-child(3) { order: 3; }
+  .ocean-sound { order: 4; grid-column: 1 / -1; justify-self: end; margin-top: -2px; }
+  .ocean-board { aspect-ratio: 4 / 5; min-height: 440px; }
+  .ocean-player { width: 31%; bottom: 4%; }
+  .ocean-entity { width: 14%; } .entity-garrafa { width: 9%; } .entity-pneu, .entity-pedra { width: 12%; } .entity-peixe, .entity-tartaruga { width: 16%; }
+  .ocean-overlay { padding: 22px; } .ocean-overlay img { width: min(130px, 35%); }
+  .ocean-controls { grid-template-columns: 1fr 1fr; gap: 12px; } .ocean-controls p { grid-column: 1 / -1; grid-row: 2; } .ocean-controls button span { display: none; }
+  .ocean-learning { padding: 22px; }
+}

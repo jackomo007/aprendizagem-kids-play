@@ -25,11 +25,11 @@ export const games: Game[] = [
     slug: "missao-oceano",
     title: "Missão Oceano",
     description:
-      "Uma aventura pelo fundo do mar está chegando. Prepare sua curiosidade!",
+      "Pilote o submarino, recolha o lixo e ajude a proteger a vida marinha.",
     subject: "Ciências",
     level: "Fundamental I",
     tone: "blue",
     icon: "globe",
-    status: "soon",
+    status: "available",
   },
 ];
