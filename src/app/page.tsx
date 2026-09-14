@@ -56,7 +56,7 @@ export default function Home() {
             linkLabel="Ver atividades"
           />
           <div className="content-grid">
-            {activities.map((activity) => (
+            {activities.slice(0, 3).map((activity) => (
               <ActivityCard key={activity.slug} activity={activity} />
             ))}
           </div>

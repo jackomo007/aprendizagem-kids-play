@@ -56,7 +56,7 @@ Os tokens de cores, tipografia, raios, sombras, espaçamento e transição ficam
 - `/educacao-infantil/` e `/fundamental/`: áreas por etapa, temas futuros e materiais disponíveis.
 - `/jogos/`: dois jogos curtos funcionais e card de Missão Oceano em preparação.
 - `/jogos/conta-comigo/` e `/jogos/detetive-das-palavras/`: perguntas interativas, tentativas livres, feedback e reinício.
-- `/atividades/`: navegação em três níveis — turma, categoria ou matéria e cards grandes de atividades. Inclui três PDFs originais de uma página, em A4, com visualização em nova aba e download.
+- `/atividades/`: navegação em três níveis — turma, categoria ou matéria e cards grandes de atividades. Inclui os materiais iniciais e uma coleção de dez atividades de Grafomotricidade para o Pré III, todas em PDF A4 com visualização e download.
 - `/idiomas/`, `/idiomas/ingles/`, `/idiomas/espanhol/`: coleção inicial e um quiz funcional por idioma.
 - `/desafios/` e `/desafios/natureza/`: prática de Ciências, sem nota ou cronômetro.
 - `/videos/`: prévia claramente identificada como em preparação, sem embeds nem links inventados.
